@@ -1,6 +1,6 @@
 <template>
-  <div class="container fixed top-0">
-    <nav class="flex  py-4 justify-center mx-auto items-center frontend  bg-white">
+  <div class=" w-full fixed top-0 bg-white">
+    <nav class="flex  py-4 justify-center mx-auto items-center frontend container ">
         <div class="text-xl mx-4"><router-link to="/">首頁</router-link></div>
         <div class="text-xl mx-4"><router-link to="/products">前台產品列表</router-link></div>
         <div class="text-xl mx-4"><router-link to="/cart">前台購物車</router-link></div>

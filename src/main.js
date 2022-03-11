@@ -17,6 +17,11 @@ import './assets/tailwind.css'
 
 import { formatTime } from './methods/timeFormat'
 
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+
+import alertMessage from '@/methods/AlertMessage'
+
 configure({
   generateMessage: localize({ zh_TW: zhTW }), // 載入繁體中文語系
   validateOnInput: false// 當輸入任何內容直接進行驗證
@@ -32,8 +37,11 @@ app.config.globalProperties.$timeFormat = {
   formatTime
 }
 
+app.config.globalProperties.alertMessage = alertMessage
+
 app.use(router)
 app.use(VueAxios, axios)
+app.use(VueSweetalert2)
 app.component('VLoading', Loading)
 app.component('VField', Field)
 app.component('VForm', Form)

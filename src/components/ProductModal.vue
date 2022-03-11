@@ -126,7 +126,6 @@ export default {
 
       this.$http.post(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/upload`, formData)
         .then(res => {
-          console.log('success')
           this.temp.imageUrl = res.data.imageUrl
           this.isLoading = false
         })

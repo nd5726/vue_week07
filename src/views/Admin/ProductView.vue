@@ -49,7 +49,6 @@
   <DeleteModal @delete-item="deleteProduct" :item="tempProduct" ref="deleteModal"></DeleteModal>
   <VLoading :active="isLoading"></VLoading>
 </template>
-
 <script>
 import ProductModal from '@/components/ProductModal.vue'
 import DeleteModal from '@/components/DeleteModal.vue'
@@ -84,24 +83,24 @@ export default {
       if (this.isNew === false) {
         this.$http.put(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${temp.id}`, { data: temp })
           .then(res => {
-            alert(res.data.message)
             this.getProducts()
             this.closeFormModal()
             this.isLoading = false
+            this.alertMessage(res.data.message, 'success')
           })
           .catch(err => {
-            alert(err.response.data.message)
+            this.alertMessage(err.response.data.message, 'error')
           })
       } else {
         this.$http.post(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product`, { data: temp })
           .then((res) => {
-            alert(res.data.message)
+            this.alertMessage(res.data.message, 'success')
             this.getProducts()
             this.closeFormModal()
             this.isLoading = false
           })
           .catch(err => {
-            alert(err.response.data.message)
+            this.alertMessage(err.response.data.message, 'error')
           })
       }
     },
@@ -109,13 +108,13 @@ export default {
       this.isLoading = true
       this.$http.delete(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${this.tempProduct.id}`)
         .then((res) => {
-          alert(res.data.message)
+          this.alertMessage(res.data.message, 'success')
           this.getProducts()
           this.closeDeleteModal()
           this.isLoading = false
         })
         .catch(err => {
-          alert(err.response.data.message)
+          this.alertMessage(err.response.data.message, 'error')
         })
     },
     addImage () {

@@ -81,28 +81,35 @@ export default {
         .then(res => {
           this.orders = res.data.orders
           this.pagination = res.data.pagination
-          console.log(this.orders)
+        })
+        .catch(err => {
+          this.alertMessage(err.response.data.message, 'error')
         })
     },
     deleteOrder () {
       this.isLoading = true
       this.$http.delete(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/order/${this.tempOrder.id}`)
         .then(res => {
-          console.log(this.tempOrder)
-          alert(res.data.message)
+          this.alertMessage(res.data.message, 'success')
           this.$refs.deleteModal.showDeleteModal = false
           this.getOrders()
           this.isLoading = false
+        })
+        .catch(err => {
+          this.alertMessage(err.response.data.message, 'error')
         })
     },
     updateOrderPaid (item) {
       this.isLoading = true
       this.$http.put(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/order/${item.id}`, { data: item })
         .then(res => {
-          alert(res.data.message)
+          this.alertMessage(res.data.message, 'success')
           this.$refs.orderModal.showOrderModal = false
           this.getOrders()
           this.isLoading = false
+        })
+        .catch(err => {
+          this.alertMessage(err.response.data.message, 'error')
         })
     },
     openFormModal (option, item) {

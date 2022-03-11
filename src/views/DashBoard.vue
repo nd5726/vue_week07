@@ -1,6 +1,6 @@
 <template>
-  <div class="container fixed top-0 bg-gray-600 mb-6 z-20">
-    <nav class="flex px-4  py-4 justify-start mx-auto items-center backend">
+  <div class=" fixed w-full top-0 bg-gray-600 mb-6 z-20">
+    <nav class="flex px-4  py-4 justify-start mx-auto items-center backend container">
       <div class="text-xl mx-2"><router-link to="/">回到前台</router-link></div>
       <div class="text-xl mx-2"><router-link to="/admin/product">後台產品列表</router-link></div>
       <div class="text-xl mx-2"><router-link to="/admin/orders">訂單列表</router-link></div>

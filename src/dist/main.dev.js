@@ -26,6 +26,12 @@ require("./assets/tailwind.css");
 
 var _timeFormat = require("./methods/timeFormat");
 
+var _vueSweetalert = _interopRequireDefault(require("vue-sweetalert2"));
+
+require("sweetalert2/dist/sweetalert2.min.css");
+
+var _AlertMessage = _interopRequireDefault(require("@/methods/AlertMessage"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 (0, _veeValidate.configure)({
@@ -45,8 +51,10 @@ var app = (0, _vue.createApp)(_App["default"]);
 app.config.globalProperties.$timeFormat = {
   formatTime: _timeFormat.formatTime
 };
+app.config.globalProperties.alertMessage = _AlertMessage["default"];
 app.use(_router["default"]);
 app.use(_vueAxios["default"], _axios["default"]);
+app.use(_vueSweetalert["default"]);
 app.component('VLoading', _vueLoadingOverlay["default"]);
 app.component('VField', _veeValidate.Field);
 app.component('VForm', _veeValidate.Form);
