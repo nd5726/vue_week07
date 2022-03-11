@@ -1,0 +1,30 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+
+input:checked ~ .dot {
+    transform: translateX(100%);
+    background-color: #0369a1;
+}
+.imglist{
+    height: 500px;
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+  
+  nav.backend a { font-weight: bold; color:rgb(170, 170, 170)}
+  nav.backend a.router-link-exact-active { color: #fff; }
+
+  nav.frontend a { font-weight: bold; color:rgb(170, 170, 170)}
+  nav.frontend a.router-link-exact-active { color: #0369a1; }
+
+  
